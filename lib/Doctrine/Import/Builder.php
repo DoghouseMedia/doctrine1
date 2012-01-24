@@ -574,7 +574,11 @@ class Doctrine_Import_Builder extends Doctrine_Builder
             // Remove notnull => true if the column is primary
             // Primary columns are implied to be notnull in Doctrine
             if (isset($options['primary']) && $options['primary'] == true && (isset($options['notnull']) && $options['notnull'] == true)) {
-                unset($options['notnull']);
+				/*
+				 * Commenting this out fixes bug DC-838
+				 * @see http://www.doctrine-project.org/jira/browse/DC-838
+				 */
+                //unset($options['notnull']);
             }
 
             // Remove default if the value is 0 and the column is a primary key
