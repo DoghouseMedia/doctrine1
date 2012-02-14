@@ -1168,7 +1168,7 @@ class Doctrine_Query extends Doctrine_Query_Abstract implements Countable
 
         // invoke the preQuery hook
         $this->_preQuery();
-
+        
         // process the DQL parts => generate the SQL parts.
         // this will also populate the $_queryComponents.
         foreach ($this->_dqlParts as $queryPartName => $queryParts) {
@@ -1306,11 +1306,11 @@ class Doctrine_Query extends Doctrine_Query_Abstract implements Countable
 
             // FIX #1868: If not ID under MySQL is found to be restricted, restrict pk column for null
             //            (which will lead to a return of 0 items)
-            $limitSubquerySql = $this->_conn->quoteIdentifier($field)
-                              . (( ! empty($subquery)) ? ' IN (' . $subquery . ')' : ' IS NULL')
-                              . ((count($this->_sqlParts['where']) > 0) ? ' AND ' : '');
+//             $limitSubquerySql = $this->_conn->quoteIdentifier($field)
+//                               . (( ! empty($subquery)) ? ' IN (' . $subquery . ')' : ' IS NULL')
+//                               . ((count($this->_sqlParts['where']) > 0) ? ' AND ' : '');
 
-            $modifyLimit = false;
+//             $modifyLimit = false;
         }
 
         // FIX #DC-26: Include limitSubquerySql as major relevance in conditions
